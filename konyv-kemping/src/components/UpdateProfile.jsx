@@ -4,64 +4,74 @@ import { useState } from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 
-function Signup() {
+function UpdateProfile() {
   
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
-  const {signup} = useAuth()
+  const {currentUser, passwordUpdate, emailUpdate } = useAuth()
   const navigate = useNavigate()
 
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
 
     if(passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError('Passwords do not match')
     }
 
-    try {
-      setError('')
-      setLoading(true)
-      await signup(emailRef.current.value, passwordRef.current.value)
-      navigate("/")
-    } catch {
-      setError('Failed to create an account')
+    const promises = []
+
+    setLoading(true)
+    setError('')
+
+    if(emailRef.current.value !== currentUser.email) {
+      promises.push(emailUpdate(emailRef.current.value))
     }
 
-    setLoading(false)
+    if(passwordRef.current.value) {
+      promises.push(passwordUpdate(passwordRef.current.value))
+    }
+
+    Promise.all(promises).then(() => {
+      navigate("/")
+    }).catch(() => {
+      setError('Failed to update account')
+    }).finally(() => {
+      setLoading(false)
+    })
   }
 
   return (
     <>
       <Card>
         <Card.Body>
-          <h2 className='text-center mb-4'>Sign Up</h2>
+          <h2 className='text-center mb-4'>Update Profile</h2>
           {error && <Alert variant='danger'>{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
                 <Form.Label>E-mail</Form.Label>
-                <Form.Control type='email' ref={emailRef} required />
+                <Form.Control type='email' ref={emailRef} required defaultValue={currentUser.email} />
             </Form.Group>
             <Form.Group id="password">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type='password' ref={passwordRef} required />
+                <Form.Control type='password' ref={passwordRef} placeholder='Leave blank to keep current password'/>
             </Form.Group>
             <Form.Group id="password-confirm">
                 <Form.Label>Password confirmation</Form.Label>
-                <Form.Control type='password' ref={passwordConfirmRef} required />
+                <Form.Control type='password' ref={passwordConfirmRef} placeholder='Leave blank to keep current password' />
             </Form.Group>
-            <Button disabled={loading} type='submit' className='w-100 mt-2'>Sign Up</Button>
+            <Button disabled={loading} type='submit' className='w-100 mt-2'>Update Profile</Button>
           </Form>
         </Card.Body>
       </Card>
       <div className='w-100 text-center mt-2'>
-        Alreasy have an account? <Link to="/login">Log In</Link>
+        <Link to="/">Cancel</Link>
       </div>
     </>
   )
 }
 
-export default Signup
+export default UpdateProfile
