@@ -1,26 +1,31 @@
 import { AuthProvider } from "./contexts/AuthContext";
 import { Container } from "react-bootstrap";
-import Signup from "./components/Signup";
+import Signup from "./pages/Signup";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from "./components/Dashboard";
-import Login from "./components/Login";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
 import PrivateRoute from "./components/PrivateRoute";
-import ForgotPassword from "./components/ForgotPassword";
-import UpdateProfile from "./components/UpdateProfile";
+import ForgotPassword from "./pages/ForgotPassword";
+import UpdateProfile from "./pages/UpdateProfile";
 import LoggedinRoute from "./components/LoggedinRoute";
+import './App.css'
+import NavbarComp from "./components/NavbarComp";
+import KempingMain from "./pages/KempingMain";
 
 
 function App() {
   return (
     <div className="App">
+      <NavbarComp/>
       <AuthProvider>
-        <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
+        <Container className="d-flex justify-content-center" style={{ minHeight: "100vh" }}>
           <div className="w-100" style={{ maxWidth: "400px" }}>
             <BrowserRouter>
               <Routes>
-                <Route path="/" element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
-                <Route path="/signup" element={<LoggedinRoute><Signup/></LoggedinRoute>} />
                 <Route path="/login" element={<LoggedinRoute><Login/></LoggedinRoute>} />
+                <Route path="/signup" element={<LoggedinRoute><Signup/></LoggedinRoute>} />
+                <Route path="/" element={<PrivateRoute><KempingMain/></PrivateRoute>}/>
+                <Route path="/profile" element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
                 <Route path="/forgot-password" element={<ForgotPassword/>}/>
                 <Route path="/update-profile" element={<PrivateRoute><UpdateProfile/></PrivateRoute>}/>
               </Routes>
