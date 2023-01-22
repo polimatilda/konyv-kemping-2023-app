@@ -24,7 +24,7 @@ function Dashboard() {
 
   return (
     <>
-      <Card>
+      <Card className='w-100' style={{ maxWidth: "400px" }}>
         <Card.Body>
           <h2 className='text-center mb-4'>Profil</h2>
           {error && <Alert variant='danger'>{error}</Alert>}

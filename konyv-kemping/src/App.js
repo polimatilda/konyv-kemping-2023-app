@@ -19,7 +19,7 @@ function App() {
       <NavbarComp/>
       <AuthProvider>
         <Container className="d-flex justify-content-center" style={{ minHeight: "100vh" }}>
-          <div className="w-100" style={{ maxWidth: "400px" }}>
+          <div className="w-100 d-flex align-items-center flex-column">
             <BrowserRouter>
               <Routes>
                 <Route path="/login" element={<LoggedinRoute><Login/></LoggedinRoute>} />

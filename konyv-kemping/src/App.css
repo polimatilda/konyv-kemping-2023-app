@@ -34,3 +34,12 @@ input:focus {
   background-color: #6646a2 !important;
   border-color: rgba(255, 255, 255, 0.664) !important;
 }
+
+h1, h2, h3, h4 {
+  color: #4c2991;
+}
+
+p {
+  text-align: justify;
+  color: #4c2991;
+}
