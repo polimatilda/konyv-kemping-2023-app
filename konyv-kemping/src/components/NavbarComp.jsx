@@ -13,12 +13,12 @@ function NavbarComp() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="A kempingről" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/">A kempingről</NavDropdown.Item>
+              <NavDropdown.Item href="/">A témáról</NavDropdown.Item>
               <NavDropdown.Item href="#readathon-choices">Közös könyvek</NavDropdown.Item>
               <NavDropdown.Item href="#guilds">Céhek</NavDropdown.Item>
             </NavDropdown>
               <Nav.Link href="/events">Események</Nav.Link>
-              <Nav.Link href="/tbr">Olvasmány lista</Nav.Link>
+              <Nav.Link href="/tbr">Olvasmánylista</Nav.Link>
               <Nav.Link href="/profile">Profil</Nav.Link>
           </Nav>
         </Navbar.Collapse>

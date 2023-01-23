@@ -51,3 +51,15 @@ ul {
 .small-caps {
   font-variant: small-caps;
 }
+
+.card-header {
+  background-color: #6646a2 !important;
+}
+
+/* img {
+  box-shadow: 0 0 5px #4c2991 !important;
+} */
+
+/* body {
+  background-color: #f8edfd !important;
+} */
