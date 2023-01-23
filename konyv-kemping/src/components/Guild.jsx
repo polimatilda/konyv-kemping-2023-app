@@ -4,11 +4,11 @@ import { Button, Card, ListGroup } from 'react-bootstrap'
 
 function Guild({ guild }) {
   return (
-    <Col class="d-flex align-items-stretch">
+    <Col className="d-flex align-items-stretch">
       <Card className='mt-2 mb-2'>
         {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
         <Card.Body>
-          <Card.Title>{guild.name}</Card.Title>
+          <Card.Title className='small-caps'>{guild.name}</Card.Title>
           <Card.Text>
             {guild.description}
           </Card.Text>

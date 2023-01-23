@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavDropdown } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -11,10 +12,14 @@ function NavbarComp() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">A kempingről</Nav.Link>
-            <Nav.Link href="/">Események</Nav.Link>
-            <Nav.Link href="/">Olvasmány lista</Nav.Link>
-            <Nav.Link href="/profile">Profil</Nav.Link>
+            <NavDropdown title="A kempingről" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/">A kempingről</NavDropdown.Item>
+              <NavDropdown.Item href="#readathon-choices">Közös könyvek</NavDropdown.Item>
+              <NavDropdown.Item href="#guilds">Céhek</NavDropdown.Item>
+            </NavDropdown>
+              <Nav.Link href="/events">Események</Nav.Link>
+              <Nav.Link href="/tbr">Olvasmány lista</Nav.Link>
+              <Nav.Link href="/profile">Profil</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

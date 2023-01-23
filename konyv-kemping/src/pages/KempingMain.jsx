@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col'
 import logo from '../pictures/logo.png'
 import Guild from '../components/Guild'
 import book from '../pictures/book.jpg'
+import bookTwo from '../pictures/bookTwo.jpg'
 
 const guilds = [
   {
@@ -99,7 +100,7 @@ function KempingMain() {
     <Container fluid>
       <Row className='mb-3'>
         <Col>
-          <h1 className="text-center">Kedves Kalandor!</h1>
+          <h1 className="text-center small-caps">Kedves Kalandor!</h1>
         </Col>
       </Row>
       <Row className="d-flex align-items-center">
@@ -111,28 +112,50 @@ function KempingMain() {
           <p>Ha nem tudsz választani akkor lehet egy fő munkád, és mellette jártassá válhatsz egy másikban is. Ebben az esetben  <strong>6 történetet kell elolvasnod (ebből háromnak könyvnek vagy kisregénynek kell lennie [képregények és képes könyvek is számítanak!]): 4 történet tartozik a “fő” mesterségedhez, kettő pedig bármely másik általad választott mesterséghez.</strong></p>
         </Col>
       </Row>
-      <Row className='mb-5 mt-5'>
+      <Row className='mb-5 mt-5' id="readathon-choices">
         <Col>
-          <h4 className='text-center my-3'>Közös könyv:</h4>
+          <h4 className='text-center my-3 small-caps'>Közös könyvek:</h4>
         </Col>
       </Row>
       <Row className="d-flex align-items-center">
         <Col lg>
-          <h3 className='text-center'>Mohamed Mbougar Sarr:</h3>
+          <h3 className='text-center small-caps'>Mohamed Mbougar Sarr:</h3>
           <h1 className='text-center mb-5'>Az ​emberek legtitkosabb emlékezete</h1>
           <p>A ​kötet 2021-ben Franciaország legrangosabb irodalmi elismerésében részesült, elnyerte a Goncourt-díjat.</p>
-          <p>2018-ban egy fiatal szenegáli író, Diégane Latyr Faye felfedez Párizsban egy legendás könyvet, az 1938-ban kiadott Az embertelenség labirintusát. A szerzőt úgy emlegették annak idején: a „néger Rimbaud”, de a műve által keltett botrány miatt eltűnt.
-            Diégane nyomozni kezd a titokzatos T.C. Elimane után, és tragédiákkal szembesül. Közben Párizsban fiatal afrikai írók egy csoportjával jár össze; figyelik egymást, beszélgetnek, vitatkoznak, isznak, sokat szeretkeznek, és töprengenek a száműzetésbeli alkotás szükségességén.</p>
+          <p>2018-ban egy fiatal szenegáli író, Diégane Latyr Faye felfedez Párizsban egy legendás könyvet, az 1938-ban kiadott Az embertelenség labirintusát. A szerzőt úgy emlegették annak idején: a „néger Rimbaud”, de a műve által keltett botrány miatt eltűnt.</p>
+          <p>Diégane nyomozni kezd a titokzatos T.C. Elimane után, és tragédiákkal szembesül. Közben Párizsban fiatal afrikai írók egy csoportjával jár össze; figyelik egymást, beszélgetnek, vitatkoznak, isznak, sokat szeretkeznek, és töprengenek a száműzetésbeli alkotás szükségességén.</p>
           <p>Az emberek legtitkosabb emlékezete villódzóan ötletes, lebilincselő olvasmány, melyben ott a választás állandó kényszere: írni vagy élni? Szerelmi vallomás az irodalomhoz és az irodalom időtlen hatalmához.</p>
           <p>Mohamed Mbougar Sarr 1990-ben született Szenegálban, Franciaországban él, eddig három regénye jelent meg. Magyarul ez az első könyve.</p>
         </Col>
         <Col lg className="d-flex justify-content-center">
-          <img src={book} className="img-fluid rounded" alt="konyv kemping logo" />
+          <img src={book} className="img-fluid rounded" alt="konyv kemping kozos konyv" />
         </Col>
       </Row>
-      <Row>
+      <Row className="d-flex align-items-center my-5">
+        <Col lg className="d-flex justify-content-center">
+          <img src={bookTwo} className="img-fluid rounded" alt="konyv kemping kozos konyv" />
+        </Col>
+        <Col lg>
+          <h3 className='text-center mt-3 small-caps'>Joya Goffney:</h3>
+          <h1 className='text-center mb-5'>Bocs, ​hadd bőgjem ki magam</h1>
+          <p>Egy könyvsorozat, amelyen keresztül jobban megismerheted önmagad és a világ sokszínűségét.</p>
+          <p>Quinn Jackson:</p>
+          <ul>
+            <li>fekete</li>
+            <li>tizennyolc éves</li>
+            <li>vegetáriánus</li>
+            <li>krónikus listaíró</li>
+            <li>nehezen barátkozik</li>
+            <li>hazugságban él</li>
+            <li>megzsarolták</li>
+            <li>szembe kell néznie az igazsággal</li>
+          </ul>
+          <p>Quinn mindenről listát vezet az életében – a napokról, amikor bőgött; a fiúkról, akiket megcsókolna, és a dolgokról, amiket sosem vallana be senkinek. Azzal, hogy kiírja magából a problémáit, nem kell megbirkóznia velük a való életben. Egészen addig, amíg valaki el nem lopja a naplóját…</p>
+        </Col>
+      </Row>
+      <Row id="guilds">
         <Col>
-          <h4 className='text-center my-3'>Céhek:</h4>
+          <h4 className='text-center my-3 small-caps'>Céhek:</h4>
         </Col>
       </Row>
       <Row md={1} sm={1} xs={1} lg={2} className="my-4">

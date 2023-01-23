@@ -11,6 +11,8 @@ import LoggedinRoute from "./components/LoggedinRoute";
 import './App.css'
 import NavbarComp from "./components/NavbarComp";
 import KempingMain from "./pages/KempingMain";
+import Events from "./pages/Events";
+import TBR from "./pages/TBR";
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
                 <Route path="/login" element={<LoggedinRoute><Login/></LoggedinRoute>} />
                 <Route path="/signup" element={<LoggedinRoute><Signup/></LoggedinRoute>} />
                 <Route path="/" element={<PrivateRoute><KempingMain/></PrivateRoute>}/>
+                <Route path="/events" element={<PrivateRoute><Events/></PrivateRoute>}/>
+                <Route path="/tbr" element={<PrivateRoute><TBR/></PrivateRoute>}/>
                 <Route path="/profile" element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
                 <Route path="/forgot-password" element={<ForgotPassword/>}/>
                 <Route path="/update-profile" element={<PrivateRoute><UpdateProfile/></PrivateRoute>}/>

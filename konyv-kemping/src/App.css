@@ -43,3 +43,11 @@ p {
   text-align: justify;
   color: #4c2991;
 }
+
+ul {
+  color: #4c2991;
+}
+
+.small-caps {
+  font-variant: small-caps;
+}
