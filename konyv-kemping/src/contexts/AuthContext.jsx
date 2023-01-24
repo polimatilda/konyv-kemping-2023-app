@@ -4,6 +4,9 @@ import { useState } from 'react'
 import { useContext } from 'react'
 import { auth } from "../firebase"
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, updateEmail, updatePassword } from "firebase/auth"
+import { database } from "../firebase"
+import { collection, addDoc } from "firebase/firestore";
+
 
 const AuthContext = React.createContext()
 
@@ -16,8 +19,20 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState()
   const [loading, setLoading] = useState(true)
 
-  function signup(email, password) {
+  function signup(email, password, name) {
     return createUserWithEmailAndPassword(auth, email, password)
+      .then(cred => {
+        // Create a new document for the user in the 'users' collection
+        addDoc(collection(database, 'users'), {
+          userId: cred.user.uid,
+          name: name,
+          guild: [],
+          tbr: []
+        });
+      })
+
+    //similar: database.collection('users').doc(cred.user.uid).set({name: name}) -> where you create a new doc in users collection using the unique user id.
+
   }
 
   function login(email, password) {

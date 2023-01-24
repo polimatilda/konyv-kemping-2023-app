@@ -33,7 +33,6 @@ function Events() {
 
   const date = new Date()
   const todaysDate = date.getFullYear() + ". " + (date.getMonth() + 1) + ". " + date.getDate() + "."
-  console.log(todaysDate)
 
   useEffect(() => {
     getEvents().then((eventsData) => {
@@ -46,9 +45,6 @@ function Events() {
       setTodaysEvents(eventsData.filter(event => todaysDate === event.date))
     })
   }, [todaysDate])
-
-  // const [todaysEvents, setTodaysEvents] = useState(events.filter(event => todaysDate === event.date))
-  // const [upcomingEvents, setUpcomingEvents] = useState(events.filter(event => todaysDate !== event.date && event.date > todaysDate))
 
   const [todaysEvents, setTodaysEvents] = useState([])
   const [upcomingEvents, setUpcomingEvents] = useState([])
@@ -69,7 +65,11 @@ function Events() {
         </Col>
       </Row>
       <Row md={1} sm={1} xs={1} lg={1} className="my-4">
-        {upcomingEvents.filter((event => todaysDate !== event.date)).map((event, index) => <Event event={event} key={index} />)}
+        {upcomingEvents.sort((a, b) => {
+          let dateA = new Date(a.date)
+          let dateB = new Date(b.date)
+          return dateA - dateB
+        }).map((event, index) => <Event event={event} key={index} />)}
       </Row>
     </>
   )
