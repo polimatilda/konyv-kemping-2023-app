@@ -56,6 +56,10 @@ ul {
   background-color: #6646a2 !important;
 }
 
+.prompt-done {
+  text-decoration: line-through !important;
+}
+
 /* img {
   box-shadow: 0 0 5px #4c2991 !important;
 } */

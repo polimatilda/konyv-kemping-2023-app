@@ -26,7 +26,7 @@ export function AuthProvider({ children }) {
         addDoc(collection(database, 'users'), {
           userId: cred.user.uid,
           name: name,
-          guild: [],
+          guild: {},
           tbr: []
         });
       })

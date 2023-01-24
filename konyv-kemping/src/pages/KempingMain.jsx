@@ -12,87 +12,87 @@ const guilds = [
     name: "A Kódexmásoló Céh - Írnok",
     description: "Kódexmásolóként Te őrzöd a Föld minden tudását, ezért szerteágazó ismeretekre van szükséged. Ennek megfelelően sok zsánerben olvasol, a tudásod pedig nagy. Az írnoknak az alábbi témakörökben kell olvasnia 5 tetszőleges történetet, legalább két különböző pontot kilőve (tehát olvashatsz például három romatikusat és két ismeretterjesztőt, vagy 4 nem angol/magyar nyelvű dolgot és egy történelmi ifjúságit):",
     prompts: [
-      "Történelmi fikció",
-      "Történelmi ismeretterjesztő",
-      "Történelmi romantikus",
-      "Történelmi ifjúsági",
-      "Nem angolszász vagy magyar"
+      {promptName: "Történelmi fikció", isCompleted: false},
+      {promptName: "Történelmi ismeretterjesztő", isCompleted: false},
+      {promptName: "Történelmi romantikus", isCompleted: false},
+      {promptName: "Történelmi ifjúsági", isCompleted: false},
+      {promptName: "Nem angolszász vagy magyar", isCompleted: false}
     ]
   },
-  {
-    name: "A Kódexmásoló Céh - A könyvkötő",
-    description: "Kódexmásolóként Te őrzöd a Föld minden tudását, ezért szerteágazó ismeretekre van szükséged. Ennek megfelelően sok zsánerben olvasol, a tudásod pedig nagy. A könyvkötőnek az alábbi szempontok szerint kell olvasnia 5 tetszőleges történetet, legalább két különböző pontot kilőve (tehát olvashatsz például három barna kötetet és két ismeretterjesztőt, vagy 4 nem angol/magyar nyelvű dolgot és egy történelmi ifjúságit):",
-    prompts: [
-      "Barna vagy fehér borítós könyv",
-      "Afrikai szerző",
-      "Illusztrált kötet",
-      "Egy kötet, ami különleges (pl. élfestett vagy aranyozott)",
-      "Ismeretközlő irodalom",
-      "Európai uniós szerző"
-    ]
-  },
-  {
-    name: "A Művész Céh",
-    description: "Művészként te őrzöd a Föld, az emberiség kreativitását, ezért olyan történeteket kell olvasnod, amelyekben a művészetek nagy szerepet kapnak. Ha a Művészek közé szeretnél tartozni, az alábbi szempontok szerint kell 5 tetszőleges történetet elolvasnod, legalább három különböző pontot kilőve:",
-    prompts: [
-      "Képregény",
-      "Mesekönyv",
-      "Illusztrált kötet",
-      "Egy művész (pl. festő, színész, író) életrajza",
-      "Könyv, amelyben fontos szerepet kap a zene",
-      "Könyv, amelyben fontos szerepet kapnak a filmek",
-      "Kortárs szerző írta"
-    ]
-  },
-  {
-    name: "A Tótumfaktumok Céhe",
-    description: "A Tótumfaktumok vagy Ezermesterek tartják karban az űrhajónkat. Munkájuk sokféle, és nagy felelősséggel jár, ezért az ő képzésük a legszigorúbb. Ha Tótumfaktum szeretnél lenni, az alábbi zsánerek MINDEGYIKÉBEN el kell olvasnod egy történetet. Maximum két novellát választhatsz, amelyek közül az egyik bármilyen lehet, a másiknak azonban valamelyik kijelölt zsánerbe kell tartoznia. Ezek közül bármelyik lehet fantasztikum is, de szerepeljen rajtuk az adott címke: tehát olvashattok pl. sci-fi thrillert és fantasy ifjúságit. És természetesen a képregény is ér!",
-    prompts: [
-      "Ökofikció/Cli-fi",
-      "Thriller",
-      "Kortárs",
-      "Ifjúsági és gyermekirodalom",
-      "Novella",
-    ]
-  },
-  {
-    name: "A Gyógyító Céh",
-    description: "A Nyírfa gyógyítói felelősek a hajó lakóinak jólétéért, ezért ismereteik a gasztronómiára és a komfortra koncentrálódnak. Ha Gyógyító szeretnél lenni, az alábbi témakörökből kell öt történeted választanod, legalább két pontot kilőve",
-    prompts: [
-      "Gasztroregény",
-      "Mágikus realizmus",
-      "Romantikus történet",
-      "Egy történet, amelyen szerepel a barátság címke",
-      "Női szerző",
-      "Női főszereplő",
-      "Egy komfort olvasmány"
-    ]
-  },
-  {
-    name: "Az Álmodók Céhe - Akik a csillagokba tekintenek",
-    description: "Az Álmodók őrzik az emberiség nagy álmait: mindazokat a dolgokat, amelyeket őseink megálmodtak: a jövőről, más világokról. Aki a csillagokba tekint, annak az alábbi témakörökben kell olvasnia 5 tetszőleges történetet, legalább két különböző pontot kilőve:",
-    prompts: [
-      "Sci-fi",
-      "Egy történet, amelyen szerepel a posztmodern címke",
-      "Képregény",
-      "Egy sci-fi, amelynek nő a szerzője",
-      "Egy társadalmi sci-fi",
-      "Egy novella Kelly Linktől"
-    ]
-  },
-  {
-    name: "Az Álmodók Céhe - Akik ajtókat nyitnak",
-    description: "Az Álmodók őrzik az emberiség nagy álmait: mindazokat a dolgokat, amelyeket őseink megálmodtak: a jövőről, más világokról. Aki ajtókat nyit, annak az alábbi témakörökben kell olvasnia 5 tetszőleges történetet, legalább két különböző pontot kilőve:",
-    prompts: [
-      "Fantasy",
-      "Egy történet sárkányokkal",
-      "Egy portál fantasy",
-      "Egy díjnyertes történet",
-      "Képregény",
-      "Egy sorozat folytatása",
-      "Egy fantasy történet, amelyekben iskola van"
-    ]
-  }
+  // {
+  //   name: "A Kódexmásoló Céh - A könyvkötő",
+  //   description: "Kódexmásolóként Te őrzöd a Föld minden tudását, ezért szerteágazó ismeretekre van szükséged. Ennek megfelelően sok zsánerben olvasol, a tudásod pedig nagy. A könyvkötőnek az alábbi szempontok szerint kell olvasnia 5 tetszőleges történetet, legalább két különböző pontot kilőve (tehát olvashatsz például három barna kötetet és két ismeretterjesztőt, vagy 4 nem angol/magyar nyelvű dolgot és egy történelmi ifjúságit):",
+  //   prompts: [
+  //     "Barna vagy fehér borítós könyv",
+  //     "Afrikai szerző",
+  //     "Illusztrált kötet",
+  //     "Egy kötet, ami különleges (pl. élfestett vagy aranyozott)",
+  //     "Ismeretközlő irodalom",
+  //     "Európai uniós szerző"
+  //   ]
+  // },
+  // {
+  //   name: "A Művész Céh",
+  //   description: "Művészként te őrzöd a Föld, az emberiség kreativitását, ezért olyan történeteket kell olvasnod, amelyekben a művészetek nagy szerepet kapnak. Ha a Művészek közé szeretnél tartozni, az alábbi szempontok szerint kell 5 tetszőleges történetet elolvasnod, legalább három különböző pontot kilőve:",
+  //   prompts: [
+  //     "Képregény",
+  //     "Mesekönyv",
+  //     "Illusztrált kötet",
+  //     "Egy művész (pl. festő, színész, író) életrajza",
+  //     "Könyv, amelyben fontos szerepet kap a zene",
+  //     "Könyv, amelyben fontos szerepet kapnak a filmek",
+  //     "Kortárs szerző írta"
+  //   ]
+  // },
+  // {
+  //   name: "A Tótumfaktumok Céhe",
+  //   description: "A Tótumfaktumok vagy Ezermesterek tartják karban az űrhajónkat. Munkájuk sokféle, és nagy felelősséggel jár, ezért az ő képzésük a legszigorúbb. Ha Tótumfaktum szeretnél lenni, az alábbi zsánerek MINDEGYIKÉBEN el kell olvasnod egy történetet. Maximum két novellát választhatsz, amelyek közül az egyik bármilyen lehet, a másiknak azonban valamelyik kijelölt zsánerbe kell tartoznia. Ezek közül bármelyik lehet fantasztikum is, de szerepeljen rajtuk az adott címke: tehát olvashattok pl. sci-fi thrillert és fantasy ifjúságit. És természetesen a képregény is ér!",
+  //   prompts: [
+  //     "Ökofikció/Cli-fi",
+  //     "Thriller",
+  //     "Kortárs",
+  //     "Ifjúsági és gyermekirodalom",
+  //     "Novella",
+  //   ]
+  // },
+  // {
+  //   name: "A Gyógyító Céh",
+  //   description: "A Nyírfa gyógyítói felelősek a hajó lakóinak jólétéért, ezért ismereteik a gasztronómiára és a komfortra koncentrálódnak. Ha Gyógyító szeretnél lenni, az alábbi témakörökből kell öt történeted választanod, legalább két pontot kilőve",
+  //   prompts: [
+  //     "Gasztroregény",
+  //     "Mágikus realizmus",
+  //     "Romantikus történet",
+  //     "Egy történet, amelyen szerepel a barátság címke",
+  //     "Női szerző",
+  //     "Női főszereplő",
+  //     "Egy komfort olvasmány"
+  //   ]
+  // },
+  // {
+  //   name: "Az Álmodók Céhe - Akik a csillagokba tekintenek",
+  //   description: "Az Álmodók őrzik az emberiség nagy álmait: mindazokat a dolgokat, amelyeket őseink megálmodtak: a jövőről, más világokról. Aki a csillagokba tekint, annak az alábbi témakörökben kell olvasnia 5 tetszőleges történetet, legalább két különböző pontot kilőve:",
+  //   prompts: [
+  //     "Sci-fi",
+  //     "Egy történet, amelyen szerepel a posztmodern címke",
+  //     "Képregény",
+  //     "Egy sci-fi, amelynek nő a szerzője",
+  //     "Egy társadalmi sci-fi",
+  //     "Egy novella Kelly Linktől"
+  //   ]
+  // },
+  // {
+  //   name: "Az Álmodók Céhe - Akik ajtókat nyitnak",
+  //   description: "Az Álmodók őrzik az emberiség nagy álmait: mindazokat a dolgokat, amelyeket őseink megálmodtak: a jövőről, más világokról. Aki ajtókat nyit, annak az alábbi témakörökben kell olvasnia 5 tetszőleges történetet, legalább két különböző pontot kilőve:",
+  //   prompts: [
+  //     "Fantasy",
+  //     "Egy történet sárkányokkal",
+  //     "Egy portál fantasy",
+  //     "Egy díjnyertes történet",
+  //     "Képregény",
+  //     "Egy sorozat folytatása",
+  //     "Egy fantasy történet, amelyekben iskola van"
+  //   ]
+  // }
 ]
 
 function KempingMain() {

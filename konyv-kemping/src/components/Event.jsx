@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Card, Button } from 'react-bootstrap'
 
 function Event({ event }) {
+
   return (
       <Col className='my-3'>
         <Card>

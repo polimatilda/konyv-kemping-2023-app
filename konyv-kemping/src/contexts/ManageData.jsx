@@ -1,4 +1,4 @@
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc, updateDoc, where } from "firebase/firestore";
 import { database } from "../firebase"
 
 export const getEvents = async () => {
@@ -11,12 +11,57 @@ export const getEvents = async () => {
   return events
 }
 
-// function writeUserData(userId, name, email) {
-//   set(ref(database, 'users/' + userId), {
-//     username: name,
-//     email: email,
-//   });
-// }
+export const getUserName = async (userId) => {
+  const querySnapshot = await getDocs(collection(database, "users"))
+  let name = '';
+  querySnapshot.forEach((doc) => {
+    if (doc.data().userId === userId) {
+      name = doc.data().name;
+    }
+  })
+  return name
+}
+
+
+export const updateGuild = async (userId, guild) => {
+
+  const querySnapshot = await getDocs(collection(database, "users"))
+  querySnapshot.forEach(async (doc) => {
+    if (doc.data().userId === userId) {
+      await updateDoc(doc.ref, { guild: guild });
+    }
+  });
+}
+
+
+export const getChosenGuild = async (userId) => {
+  const querySnapshot = await getDocs(collection(database, "users"))
+  let guild = [];
+  querySnapshot.forEach((doc) => {
+    if (doc.data().userId === userId) {
+      guild = doc.data().guild;
+    }
+  })
+  return guild
+}
+
+export const updatePrompt = async (userId, name, isCompletedNew) => {
+  
+  const querySnapshot = await getDocs(collection(database, "users"))
+  querySnapshot.forEach(async (doc) => {
+    if (doc.data().userId === userId) {
+      const updatedPrompts = doc.data().guild.prompts.map((prompt) => {
+        if (prompt.promptName === name) {
+          return {...prompt, isCompleted: isCompletedNew}
+        }
+        return prompt;
+      });
+      await updateDoc(doc.ref, {guild: {...doc.data().guild, prompts: updatedPrompts}})
+    }
+  });
+
+}
+
 
 // export const writeUserData = async (userId, name) => {
 //   try {
