@@ -20,6 +20,7 @@ function Guild({ guild }) {
     if(currentUser && chosenGuild.name) {
       updateGuild(currentUser.uid, chosenGuild)
     }
+    
   }, [chosenGuild, currentUser])
 
   return (

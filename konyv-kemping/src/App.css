@@ -50,6 +50,7 @@ ul {
 
 .small-caps {
   font-variant: small-caps;
+  color: #4c2991 !important;
 }
 
 .card-header {
@@ -58,6 +59,10 @@ ul {
 
 .prompt-done {
   text-decoration: line-through !important;
+}
+
+.guild-card {
+  color: #4c2991 !important;
 }
 
 /* img {

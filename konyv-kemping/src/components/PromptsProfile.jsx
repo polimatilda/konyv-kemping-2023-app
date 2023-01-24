@@ -26,7 +26,7 @@ function PromptsProfile({ prompt }) {
 
   return (
     <>
-      <ListGroup.Item as="li" className={"guild-card d-flex justify-content-between" + (promptToUpdateCompleted ? " prompt-done" : "")}>
+      <ListGroup.Item as="li" className={"guild-card d-flex justify-content-between align-items-center" + (promptToUpdateCompleted ? " prompt-done" : "")}>
         {prompt.promptName}
         <Button onClick={promptUpdate}>{promptToUpdateCompleted ? "Mégsem" : "Kész!"}</Button>
       </ListGroup.Item>

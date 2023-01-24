@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, setDoc, updateDoc, where } from "firebase/firestore";
+import { collection, getDocs, updateDoc } from "firebase/firestore";
 import { database } from "../firebase"
 
 export const getEvents = async () => {
@@ -46,7 +46,7 @@ export const getChosenGuild = async (userId) => {
 }
 
 export const updatePrompt = async (userId, name, isCompletedNew) => {
-  
+
   const querySnapshot = await getDocs(collection(database, "users"))
   querySnapshot.forEach(async (doc) => {
     if (doc.data().userId === userId) {

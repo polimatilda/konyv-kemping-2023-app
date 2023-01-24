@@ -52,27 +52,6 @@ function Dashboard() {
           <h1>Szép napot, {name}!</h1>
         </Col>
       </Row>
-      <Row className='my-3'>
-        <Row>
-          <Col className='small-caps'>
-            <h4>A kempingen választott céhed:</h4>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            {Object.keys(guild).length > 0
-              ? <Row>
-                <Col>
-                  <h2>{guild.name}</h2>
-                  <ListGroup as="ol" numbered>
-                    {guild.prompts.map((prompt, index) => <PromptsProfile key={index} prompt={prompt}/>)}
-                  </ListGroup>
-                </Col>
-              </Row>
-              : <h2>Még nem választottál céhet</h2>}
-          </Col>
-        </Row>
-      </Row>
       <Card className='w-100 mt-5' style={{ maxWidth: "400px" }}>
         <Card.Body>
           <h2 className='text-center mb-4'>Bejelentkezési adatok</h2>
@@ -83,9 +62,31 @@ function Dashboard() {
           <Link to="/update-profile" className='btn btn-primary w-100 mt-3 text-white'>Adatok frissítése</Link>
         </Card.Body>
       </Card>
-      <div className='w-100 text-center mt-2'>
+      <div className='w-100 text-center mt-2 mb-5'>
         <Button variant='link' onClick={handleLogout} className="logout-btn" >Kijelentkezés</Button>
       </div>
+      <Row className='my-5'>
+        <Row>
+          <Col className='small-caps'>
+            <h4>A kempingen választott céhed:</h4>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            {Object.keys(guild).length > 0
+              ? <Row>
+                <Col>
+                  <h2 className='mb-3'>{guild.name}</h2>
+                  <ListGroup as="ol">
+                    {guild.prompts.map((prompt, index) => <PromptsProfile key={index} prompt={prompt}/>)}
+                  </ListGroup>
+                </Col>
+              </Row>
+              : <h2>Még nem választottál céhet</h2>}
+          </Col>
+        </Row>
+      </Row>
+      
     </>
   )
 }
