@@ -62,6 +62,45 @@ export const updatePrompt = async (userId, name, isCompletedNew) => {
 
 }
 
+export const addToTBR = async (userId, bookData) => {
+  const querySnapshot = await getDocs(collection(database, "users"))
+  querySnapshot.forEach(async (doc) => {
+    if (doc.data().userId === userId) {
+      await updateDoc(doc.ref, {tbr: [...(doc.data().tbr || []), bookData]})
+    }
+  })
+
+  // const querySnapshot = await getDocs(collection(database, "users"))
+  
+  // const userDoc = querySnapshot.docs.find(doc => doc.data().userId === userId)
+  
+  // if(userDoc) {
+  //   const updatedData = {
+  //     tbr: [...(userDoc.data().tbr || []), bookData]
+  //   };
+  //   await updateDoc(userDoc.ref, updatedData)
+  // }
+
+  // const querySnapshot = await getDocs(collection(database, "users"))
+  // const userDoc = querySnapshot.docs.find(doc => doc.data().userId === userId)
+
+  // if(userDoc) {
+  //   await userDoc.ref.update({
+  //     tbr: database.FieldValue.arrayUnion([bookData])
+  //   });
+  // }
+}
+
+export const getTBR = async (userId) => {
+  const querySnapshot = await getDocs(collection(database, "users"))
+  let tbr = [];
+  querySnapshot.forEach((doc) => {
+    if (doc.data().userId === userId) {
+      tbr = doc.data().tbr;
+    }
+  })
+  return tbr
+}
 
 // export const writeUserData = async (userId, name) => {
 //   try {

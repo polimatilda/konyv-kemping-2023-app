@@ -7,29 +7,8 @@ import { getEvents } from '../contexts/ManageData'
 
 function Events() {
 
-  // const events = [
-  //   {
-  //     name: "Könyv Kemping 2023 bejelentő live",
-  //     where: "YouTube",
-  //     link: "https://www.youtube.com/@booksflyingaround",
-  //     date: "2023. 1. 31.",
-  //     time: "19:00"
-  //   },
-  //   {
-  //     name: "Anti Read-in",
-  //     where: "YouTube",
-  //     link: "https://www.youtube.com/@booksflyingaround",
-  //     date: "2023. 2. 12.",
-  //     time: "19:00"
-  //   },
-  //   {
-  //     name: "Read-in",
-  //     where: "Discord",
-  //     link: "https://www.youtube.com/@booksflyingaround",
-  //     date: "2023. 2. 15.",
-  //     time: "20:00"
-  //   }
-  // ]
+  const [todaysEvents, setTodaysEvents] = useState([])
+  const [upcomingEvents, setUpcomingEvents] = useState([])
 
   const date = new Date()
   const todaysDate = date.getFullYear() + ". " + (date.getMonth() + 1) + ". " + date.getDate() + "."
@@ -45,9 +24,6 @@ function Events() {
       setTodaysEvents(eventsData.filter(event => todaysDate === event.date))
     })
   }, [todaysDate])
-
-  const [todaysEvents, setTodaysEvents] = useState([])
-  const [upcomingEvents, setUpcomingEvents] = useState([])
 
   return (
     <>
@@ -66,8 +42,8 @@ function Events() {
       </Row>
       <Row md={1} sm={1} xs={1} lg={1} className="my-4">
         {upcomingEvents.sort((a, b) => {
-          let dateA = new Date(a.date)
-          let dateB = new Date(b.date)
+          let dateA = new Date(a.date.replace(/\./g, '-'))
+          let dateB = new Date(b.date.replace(/\./g, '-'))
           return dateA - dateB
         }).map((event, index) => <Event event={event} key={index} />)}
       </Row>

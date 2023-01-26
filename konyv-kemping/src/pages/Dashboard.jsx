@@ -27,7 +27,7 @@ function Dashboard() {
   useEffect(() => {
     if (currentUser) {
       getChosenGuild(currentUser.uid)
-        .then(user => setGuild(user))
+        .then(guild => setGuild(guild))
     }
   }, [currentUser])
 
