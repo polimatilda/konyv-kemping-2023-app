@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Col from 'react-bootstrap/Col'
-import { Button, Card, ListGroup } from 'react-bootstrap'
+import { Alert, Button, Card, ListGroup } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { updateGuild } from '../contexts/ManageData'
 import { useEffect } from 'react'
@@ -11,9 +11,11 @@ function Guild({ guild }) {
   const { currentUser } = useAuth()
 
   const [chosenGuild, setChosenGuild] = useState([])
+  const [alert, setAlert] = useState(false)
 
   const chooseGuild = () => {
     setChosenGuild(guild)
+    setAlert(true)
   }
 
   useEffect(() => {
@@ -37,6 +39,7 @@ function Guild({ guild }) {
           </ListGroup>
         </Card.Body>
         <Button onClick={chooseGuild}>Céh kiválasztása</Button>
+        {alert && <Alert variant='success' className='mt-2 text-center'>Céh kiválasztva!</Alert>}
       </Card>
     </Col>
   )
