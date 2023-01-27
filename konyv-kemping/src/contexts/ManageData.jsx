@@ -52,11 +52,11 @@ export const updatePrompt = async (userId, name, isCompletedNew) => {
     if (doc.data().userId === userId) {
       const updatedPrompts = doc.data().guild.prompts.map((prompt) => {
         if (prompt.promptName === name) {
-          return {...prompt, isCompleted: isCompletedNew}
+          return { ...prompt, isCompleted: isCompletedNew }
         }
         return prompt;
       });
-      await updateDoc(doc.ref, {guild: {...doc.data().guild, prompts: updatedPrompts}})
+      await updateDoc(doc.ref, { guild: { ...doc.data().guild, prompts: updatedPrompts } })
     }
   });
 
@@ -66,29 +66,9 @@ export const addToTBR = async (userId, bookData) => {
   const querySnapshot = await getDocs(collection(database, "users"))
   querySnapshot.forEach(async (doc) => {
     if (doc.data().userId === userId) {
-      await updateDoc(doc.ref, {tbr: [...(doc.data().tbr || []), bookData]})
+      await updateDoc(doc.ref, { tbr: [...(doc.data().tbr || []), bookData] })
     }
   })
-
-  // const querySnapshot = await getDocs(collection(database, "users"))
-  
-  // const userDoc = querySnapshot.docs.find(doc => doc.data().userId === userId)
-  
-  // if(userDoc) {
-  //   const updatedData = {
-  //     tbr: [...(userDoc.data().tbr || []), bookData]
-  //   };
-  //   await updateDoc(userDoc.ref, updatedData)
-  // }
-
-  // const querySnapshot = await getDocs(collection(database, "users"))
-  // const userDoc = querySnapshot.docs.find(doc => doc.data().userId === userId)
-
-  // if(userDoc) {
-  //   await userDoc.ref.update({
-  //     tbr: database.FieldValue.arrayUnion([bookData])
-  //   });
-  // }
 }
 
 export const getTBR = async (userId) => {
@@ -102,16 +82,29 @@ export const getTBR = async (userId) => {
   return tbr
 }
 
-// export const writeUserData = async (userId, name) => {
-//   try {
-//     const docRef = await addDoc(collection(database, "users"), {
-//       userId: userId,
-//       name: name,
-//       guild: [],
-//       tbr: []
-//     });
-//     console.log("Document written with ID: ", docRef.id);
-//   } catch (e) {
-//     console.error("Error adding document: ", e);
-//   }
-// }
+export const updateBookStatus = async (userId, title, author, isReadNew) => {
+
+  const querySnapshot = await getDocs(collection(database, "users"))
+  querySnapshot.forEach(async (doc) => {
+    if (doc.data().userId === userId) {
+      const updatedBooks = doc.data().tbr.map((book) => {
+        if (book.title === title && book.author === author) {
+          return { ...book, isRead: isReadNew }
+        }
+        return book;
+      });
+      await updateDoc(doc.ref, { tbr: updatedBooks })
+    }
+  });
+
+}
+
+export const deleteBookFromTBR = async (userId, title, author) => {
+  const querySnapshot = await getDocs(collection(database, "users"));
+  querySnapshot.forEach(async (doc) => {
+    if (doc.data().userId === userId) {
+      const updatedBooks = doc.data().tbr.filter(book => (book.title !== title && book.author !== author));
+      await updateDoc(doc.ref, { tbr: updatedBooks });
+    }
+  });
+}

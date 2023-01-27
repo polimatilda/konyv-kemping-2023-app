@@ -1,18 +1,45 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { Button, Col, ListGroup, Row } from 'react-bootstrap'
+import { Alert, Button, Col, ListGroup, Row } from 'react-bootstrap'
+import { useAuth } from '../contexts/AuthContext'
+import { deleteBookFromTBR, updateBookStatus } from '../contexts/ManageData'
 
 function TbrList({ book }) {
 
+  const { currentUser } = useAuth()
+
   const [bookRead, setBookRead] = useState(book.isRead)
+  const [bookTitle, setBookTitle] = useState("")
+  const [bookAuthor, setBookAuthor] = useState("")
+  const [bookToDelete, setBookToDelete] = useState(false)
 
   const bookIsReadUpdate = () => {
     setBookRead(!bookRead)
+    setBookTitle(book.title)
+    setBookAuthor(book.author)
   }
+
+  const deleteBook = () => {
+    setBookTitle(book.title)
+    setBookAuthor(book.author)
+    setBookToDelete(true)
+  }
+
+  useEffect(() => {
+    if (currentUser && bookTitle && bookAuthor) {
+      updateBookStatus(currentUser.uid, bookTitle, bookAuthor, bookRead)
+    }
+  }, [currentUser, bookTitle, bookAuthor, bookRead])
+
+  useEffect(() => {
+    if (currentUser && bookTitle && bookAuthor && bookToDelete) {
+      deleteBookFromTBR(currentUser.uid, bookTitle, bookAuthor)
+    }
+  }, [currentUser, bookTitle, bookAuthor, bookToDelete])
 
   return (
     <>
-      <ListGroup.Item as="li" className={"guild-card d-flex justify-content-between align-items-center"}>
+      {bookToDelete ? <Alert variant='success' className='mt-2'>Könyv törölve</Alert> : <ListGroup.Item as="li" className={"guild-card d-flex justify-content-between align-items-center"}>
         <Col>
           <Row>
             <p className={'mb-0 small-caps' + (bookRead ? " prompt-done" : "")}>{book.author}:</p>
@@ -36,7 +63,7 @@ function TbrList({ book }) {
             </Button>
           </Col>
           <Col>
-            <Button className="d-flex justify-content-center align-items-center">
+            <Button className="d-flex justify-content-center align-items-center" onClick={deleteBook}>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-square" viewBox="0 0 16 16">
                 <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
@@ -44,7 +71,7 @@ function TbrList({ book }) {
             </Button>
           </Col>
         </Row>
-      </ListGroup.Item>
+      </ListGroup.Item>}
     </>
   )
 }

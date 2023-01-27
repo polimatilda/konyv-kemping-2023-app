@@ -35,6 +35,7 @@ function TBR() {
   }, [currentUser, isGuildChosen])
 
   const handleSubmit = async (event) => {
+    
     event.preventDefault()
 
     if(titleRef.current.value && authorRef.current.value) {
@@ -50,6 +51,7 @@ function TBR() {
   
       titleRef.current.value = ""
       authorRef.current.value = ""
+
     } else {
       setEmptyFieldAlert(true)
     }
@@ -65,9 +67,11 @@ function TBR() {
   useEffect(() => {
     if (currentUser) {
       getTBR(currentUser.uid)
-        .then(tbr => setTbr(tbr))
+        .then(tbr => {
+          setTbr(tbr)
+        })
     }
-  }, [currentUser])
+  }, [currentUser, bookAlert])
 
   return (
     <>
@@ -85,6 +89,7 @@ function TBR() {
               <Form.Label>Szempont</Form.Label>
               <Form.Select aria-label="Default select example" ref={promptRef} disabled={!isGuildChosen} required>
                 {prompts.length > 0 && prompts.map((prompt, index) => <option key={index}>{prompt.promptName}</option>)}
+                <option>Céhen kívüli olvasmány</option>
               </Form.Select>
               {emptyFieldAlert && <Alert variant='danger' dismissible onClose={() => setEmptyFieldAlert(false)} className='mt-2'>Tölts ki minden mezőt!</Alert>}
             </Form.Group>

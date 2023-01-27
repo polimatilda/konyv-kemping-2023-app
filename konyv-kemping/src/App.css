@@ -65,10 +65,7 @@ ul {
   color: #4c2991 !important;
 }
 
-/* img {
-  box-shadow: 0 0 5px #4c2991 !important;
-} */
-
-/* body {
-  background-color: #f8edfd !important;
-} */
+.form-select:focus {
+  border-color: #6646a2 !important;
+  box-shadow: 0px 0px 5px #6646a2 !important;
+}
