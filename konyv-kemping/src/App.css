@@ -69,3 +69,16 @@ ul {
   border-color: #6646a2 !important;
   box-shadow: 0px 0px 5px #6646a2 !important;
 }
+
+.prompt-align {
+  text-align: left;
+}
+
+.eszti-img {
+  max-height: 400px;
+  height: 100%;
+}
+
+.creator-btn {
+  text-decoration: none;
+}

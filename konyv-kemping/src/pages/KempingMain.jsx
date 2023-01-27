@@ -6,6 +6,7 @@ import logo from '../pictures/logo.png'
 import Guild from '../components/Guild'
 import book from '../pictures/book.jpg'
 import bookTwo from '../pictures/bookTwo.jpg'
+import AboutCreator from '../components/AboutCreator'
 
 const guilds = [
   {
@@ -161,6 +162,7 @@ function KempingMain() {
       <Row md={1} sm={1} xs={1} lg={2} className="my-4">
         {guilds.map((guild, index) => <Guild key={index} guild={guild} />)}
       </Row>
+      <AboutCreator/>
     </Container>
   )
 }

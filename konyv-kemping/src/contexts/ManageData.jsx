@@ -16,7 +16,7 @@ export const getUserName = async (userId) => {
   let name = '';
   querySnapshot.forEach((doc) => {
     if (doc.data().userId === userId) {
-      name = doc.data().name;
+      name = doc.data().name
     }
   })
   return name
@@ -28,7 +28,7 @@ export const updateGuild = async (userId, guild) => {
   const querySnapshot = await getDocs(collection(database, "users"))
   querySnapshot.forEach(async (doc) => {
     if (doc.data().userId === userId) {
-      await updateDoc(doc.ref, { guild: guild });
+      await updateDoc(doc.ref, { guild: guild })
     }
   });
 }
@@ -39,7 +39,7 @@ export const getChosenGuild = async (userId) => {
   let guild = [];
   querySnapshot.forEach((doc) => {
     if (doc.data().userId === userId) {
-      guild = doc.data().guild;
+      guild = doc.data().guild
     }
   })
   return guild
@@ -76,34 +76,34 @@ export const getTBR = async (userId) => {
   let tbr = [];
   querySnapshot.forEach((doc) => {
     if (doc.data().userId === userId) {
-      tbr = doc.data().tbr;
+      tbr = doc.data().tbr
     }
   })
   return tbr
 }
 
-export const updateBookStatus = async (userId, title, author, isReadNew) => {
+export const updateBookStatus = async (userId, id, isReadNew) => {
 
   const querySnapshot = await getDocs(collection(database, "users"))
   querySnapshot.forEach(async (doc) => {
     if (doc.data().userId === userId) {
       const updatedBooks = doc.data().tbr.map((book) => {
-        if (book.title === title && book.author === author) {
+        if (book.id === id) {
           return { ...book, isRead: isReadNew }
         }
-        return book;
+        return book
       });
       await updateDoc(doc.ref, { tbr: updatedBooks })
     }
-  });
+  })
 
 }
 
-export const deleteBookFromTBR = async (userId, title, author) => {
+export const deleteBookFromTBR = async (userId, id) => {
   const querySnapshot = await getDocs(collection(database, "users"));
   querySnapshot.forEach(async (doc) => {
     if (doc.data().userId === userId) {
-      const updatedBooks = doc.data().tbr.filter(book => (book.title !== title && book.author !== author));
+      const updatedBooks = doc.data().tbr.filter(book => (book.id !== id))
       await updateDoc(doc.ref, { tbr: updatedBooks });
     }
   });

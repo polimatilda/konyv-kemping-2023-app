@@ -65,7 +65,7 @@ function Dashboard() {
       <div className='w-100 text-center mt-2 mb-5'>
         <Button variant='link' onClick={handleLogout} className="logout-btn" >Kijelentkezés</Button>
       </div>
-      <Row className='my-5'>
+      <Row className='my-5 d-flex justify-content-center align-items-center'>
         <Row>
           <Col className='small-caps'>
             <h4>A kempingen választott céhed:</h4>

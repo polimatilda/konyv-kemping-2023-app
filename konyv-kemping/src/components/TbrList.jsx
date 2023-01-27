@@ -9,33 +9,32 @@ function TbrList({ book }) {
   const { currentUser } = useAuth()
 
   const [bookRead, setBookRead] = useState(book.isRead)
-  const [bookTitle, setBookTitle] = useState("")
-  const [bookAuthor, setBookAuthor] = useState("")
+
   const [bookToDelete, setBookToDelete] = useState(false)
+  const [bookId, setBookId] = useState("")
 
   const bookIsReadUpdate = () => {
     setBookRead(!bookRead)
-    setBookTitle(book.title)
-    setBookAuthor(book.author)
+    setBookId(book.id)
   }
 
   const deleteBook = () => {
-    setBookTitle(book.title)
-    setBookAuthor(book.author)
+    setBookId(book.id)
     setBookToDelete(true)
   }
 
   useEffect(() => {
-    if (currentUser && bookTitle && bookAuthor) {
-      updateBookStatus(currentUser.uid, bookTitle, bookAuthor, bookRead)
+    if (currentUser && bookId) {
+      updateBookStatus(currentUser.uid, bookId, bookRead)
     }
-  }, [currentUser, bookTitle, bookAuthor, bookRead])
+  }, [currentUser, bookId, bookRead])
 
   useEffect(() => {
-    if (currentUser && bookTitle && bookAuthor && bookToDelete) {
-      deleteBookFromTBR(currentUser.uid, bookTitle, bookAuthor)
+    if (currentUser && bookId && bookToDelete) {
+      deleteBookFromTBR(currentUser.uid, bookId)
     }
-  }, [currentUser, bookTitle, bookAuthor, bookToDelete])
+  }, [currentUser, bookId, bookToDelete])
+  
 
   return (
     <>
@@ -48,7 +47,7 @@ function TbrList({ book }) {
             <h4 className={'mb-0' + (bookRead ? " prompt-done" : "")}>{book.title}</h4>
           </Row>
           <Row className='mt-2'>
-            <p className={'mb-0' + (bookRead ? " prompt-done" : "")}>Szempont: {book.prompt}</p>
+            <p className={'mb-0 prompt-align text-left' + (bookRead ? " prompt-done" : "")}>Szempont: {book.prompt}</p>
           </Row>
         </Col>
         <Row>
