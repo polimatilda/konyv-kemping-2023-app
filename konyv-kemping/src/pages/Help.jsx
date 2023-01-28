@@ -4,7 +4,7 @@ import { Card, ListGroup } from 'react-bootstrap'
 function Help() {
   return (
     <>
-      <Card className='mt-2 mb-2 w-100 help-card' style={{ maxWidth: "500px" }}>
+      <Card className='mt-2 mb-2 w-100 help-card' style={{ maxWidth: "600px" }}>
         <Card.Body>
           <Card.Title className='small-caps text-white'>Súgó</Card.Title>
           <Card.Text className='text-white'>

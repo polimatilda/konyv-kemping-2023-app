@@ -6,7 +6,6 @@ import { getChosenGuild, getUserName } from '../contexts/ManageData'
 import ProfileDetails from '../components/ProfileDetails'
 import ProfileGuild from '../components/ProfileGuild'
 
-
 function Dashboard() {
 
 
