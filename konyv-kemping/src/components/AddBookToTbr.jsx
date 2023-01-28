@@ -36,6 +36,9 @@ function AddBookToTbr({setTbr}) {
     } else {
       setEmptyFieldAlert(true)
     }
+
+    authorRef.current.value = ""
+    titleRef.current.value = ""
     
   }
 

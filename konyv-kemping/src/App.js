@@ -13,6 +13,7 @@ import NavbarComp from "./components/NavbarComp";
 import KempingMain from "./pages/KempingMain";
 import Events from "./pages/Events";
 import TBR from "./pages/TBR";
+import Help from "./pages/Help";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/profile" element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
                 <Route path="/forgot-password" element={<ForgotPassword/>}/>
                 <Route path="/update-profile" element={<PrivateRoute><UpdateProfile/></PrivateRoute>}/>
+                <Route path="/help" element={<Help/>}/>
               </Routes>
             </BrowserRouter>
           </div>

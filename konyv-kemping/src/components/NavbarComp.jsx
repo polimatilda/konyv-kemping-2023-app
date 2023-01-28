@@ -21,6 +21,7 @@ function NavbarComp() {
               <Nav.Link href="/events">Események</Nav.Link>
               <Nav.Link href="/tbr">Olvasmánylista</Nav.Link>
               <Nav.Link href="/profile">Profil</Nav.Link>
+              <Nav.Link href="/help">Súgó</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -82,3 +82,7 @@ ul {
 .creator-btn {
   text-decoration: none;
 }
+
+.help-card.card {
+  background-color: #6646a2 !important;
+}
