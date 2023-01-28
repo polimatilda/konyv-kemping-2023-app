@@ -13,7 +13,7 @@ function Event({ event }) {
               {event.where}
             </Card.Text>
             <a href={event.link} target="_blank" rel='noreferrer'>
-              <Button variant="primary">
+              <Button variant="primary" disabled={event.link === "" ? true : false}>
                 Ugrás az eseményre
               </Button>
             </a>
