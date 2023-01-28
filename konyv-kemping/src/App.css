@@ -86,3 +86,8 @@ ul {
 .help-card.card {
   background-color: #6646a2 !important;
 }
+
+.event-link {
+  text-decoration: none;
+  color: white !important;
+}
