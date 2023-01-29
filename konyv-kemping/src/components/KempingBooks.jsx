@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Button, Col, Row } from 'react-bootstrap'
 import bookOne from '../pictures/book.jpg'
 import bookTwo from '../pictures/bookTwo.jpg'
 
@@ -12,7 +12,7 @@ function KempingBooks() {
         </Col>
       </Row>
       <Row className="d-flex align-items-center">
-        <Col lg>
+        <Col lg className='mb-3'>
           <h3 className='text-center small-caps'>Mohamed Mbougar Sarr:</h3>
           <h1 className='text-center mb-5'>Az ​emberek legtitkosabb emlékezete</h1>
           <p>A ​kötet 2021-ben Franciaország legrangosabb irodalmi elismerésében részesült, elnyerte a Goncourt-díjat.</p>
@@ -20,6 +20,7 @@ function KempingBooks() {
           <p>Diégane nyomozni kezd a titokzatos T.C. Elimane után, és tragédiákkal szembesül. Közben Párizsban fiatal afrikai írók egy csoportjával jár össze; figyelik egymást, beszélgetnek, vitatkoznak, isznak, sokat szeretkeznek, és töprengenek a száműzetésbeli alkotás szükségességén.</p>
           <p>Az emberek legtitkosabb emlékezete villódzóan ötletes, lebilincselő olvasmány, melyben ott a választás állandó kényszere: írni vagy élni? Szerelmi vallomás az irodalomhoz és az irodalom időtlen hatalmához.</p>
           <p>Mohamed Mbougar Sarr 1990-ben született Szenegálban, Franciaországban él, eddig három regénye jelent meg. Magyarul ez az első könyve.</p>
+          <Button><a href="https://moly.hu/konyvek/mohamed-mbougar-sarr-az-emberek-legtitkosabb-emlekezete" target="_blank" rel='noreferrer' className='btn-link'>További információ</a></Button>
         </Col>
         <Col lg className="d-flex justify-content-center">
           <img src={bookOne} className="img-fluid rounded" alt="konyv kemping kozos konyv" />
@@ -29,7 +30,7 @@ function KempingBooks() {
         <Col lg className="d-flex justify-content-center">
           <img src={bookTwo} className="img-fluid rounded" alt="konyv kemping kozos konyv" />
         </Col>
-        <Col lg>
+        <Col lg className='mb-3'>
           <h3 className='text-center mt-3 small-caps'>Joya Goffney:</h3>
           <h1 className='text-center mb-5'>Bocs, ​hadd bőgjem ki magam</h1>
           <p>Egy könyvsorozat, amelyen keresztül jobban megismerheted önmagad és a világ sokszínűségét.</p>
@@ -45,6 +46,7 @@ function KempingBooks() {
             <li>szembe kell néznie az igazsággal</li>
           </ul>
           <p>Quinn mindenről listát vezet az életében – a napokról, amikor bőgött; a fiúkról, akiket megcsókolna, és a dolgokról, amiket sosem vallana be senkinek. Azzal, hogy kiírja magából a problémáit, nem kell megbirkóznia velük a való életben. Egészen addig, amíg valaki el nem lopja a naplóját…</p>
+          <Button><a href="https://moly.hu/konyvek/joya-goffney-bocs-hadd-bogjem-ki-magam" target="_blank" rel='noreferrer' className='btn-link'>További információ</a></Button>
         </Col>
       </Row>
     </>

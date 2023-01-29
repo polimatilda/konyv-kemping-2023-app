@@ -14,6 +14,7 @@ import KempingMain from "./pages/KempingMain";
 import Events from "./pages/Events";
 import TBR from "./pages/TBR";
 import Help from "./pages/Help";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
               </Routes>
             </div>
           </Container>
+          <Footer/>
         </BrowserRouter>
       </AuthProvider>
     </div>

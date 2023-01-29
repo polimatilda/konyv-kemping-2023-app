@@ -4,7 +4,7 @@ import { Card, ListGroup } from 'react-bootstrap'
 function Help() {
   return (
     <>
-      <Card className='mt-2 mb-2 w-100 help-card' style={{ maxWidth: "600px" }}>
+      <Card className='mt-2 mb-5 w-100 help-card' style={{ maxWidth: "600px" }}>
         <Card.Body>
           <Card.Title className='small-caps text-white'>Súgó</Card.Title>
           <Card.Text className='text-white'>
@@ -12,10 +12,10 @@ function Help() {
           </Card.Text>
           <ListGroup as="ol" numbered>
             <ListGroup.Item as="li" className="guild-card">
-              Ahhoz, hogy az alkalmazást használni tudd, regisztrálni kell az oldalon. Regisztrálni <a href="/signup"><strong>itt</strong></a> tudsz. Ha már van fiókod, bejelenkezés után hozzáférsz a többi oldalhoz.
+              Ahhoz, hogy az alkalmazást használni tudd, regisztrálni kell az oldalon. Regisztrálni <a href="/signup"><strong>itt</strong></a> tudsz. Ha már van fiókod, bejelenkezés után hozzáférsz a minden oldalhoz és funkcionalitáshoz.
             </ListGroup.Item>
             <ListGroup.Item as="li" className="guild-card">
-                A főoldalon (<strong>Könyv Kemping</strong> vagy <strong>A kempingről</strong> menü alatt) találod az idei Könyv Kemping témáját, a közös könyveket, a céheket és a kemping fő szervezőjét bemutató részt. Itt tudsz céhet választani. Ha menet közben másik céhet szeretnél, csak nyomj rá a "Céh kiválasztása" gombra a szimpatikus céhnél.
+                A főoldalon (<strong>Könyv Kemping</strong> vagy <strong>A kempingről</strong> menü alatt) találod az idei Könyv Kemping témáját, a közös könyveket, a céheket és a kemping fő szervezőjét bemutató részt. Itt tudsz céhet választani (amennyiben rendelkezel fiókkal és be vagy lépve). Ha menet közben másik céhet szeretnél, csak nyomj rá a "Céh kiválasztása" gombra a szimpatikus céhnél.
             </ListGroup.Item>
             <ListGroup.Item as="li" className="guild-card">
               Az <strong>Események</strong> menüpont alatt találhatók a Könyv Kemping beütemezett eseményei, platformmal és elérhetődégi linkkel. Amennyiben egy eseménynek még nincs linkje, úgy a hozzá tartozó gomb nem aktív. Az eseményeknél külön csoportban jelennek meg az adott napi események, illetve a későbbi események.

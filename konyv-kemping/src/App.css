@@ -87,7 +87,16 @@ ul {
   background-color: #6646a2 !important;
 }
 
-.event-link {
+.event-link, .btn-link {
   text-decoration: none;
   color: white !important;
+}
+
+.footer-comp {
+  background-color: #6646a2;
+  opacity: 0.85;
+}
+
+.btn-link  {
+  text-decoration: none !important;
 }
