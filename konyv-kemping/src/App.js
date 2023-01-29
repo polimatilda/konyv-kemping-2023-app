@@ -19,25 +19,25 @@ import Help from "./pages/Help";
 function App() {
   return (
     <div className="App">
-      <NavbarComp/>
       <AuthProvider>
-        <Container className="d-flex justify-content-center" style={{ minHeight: "100vh" }}>
-          <div className="w-100 d-flex align-items-center flex-column">
-            <BrowserRouter>
+        <BrowserRouter>
+          <NavbarComp />
+          <Container className="d-flex justify-content-center" style={{ minHeight: "100vh" }}>
+            <div className="w-100 d-flex align-items-center flex-column">
               <Routes>
-                <Route path="/login" element={<LoggedinRoute><Login/></LoggedinRoute>} />
-                <Route path="/signup" element={<LoggedinRoute><Signup/></LoggedinRoute>} />
-                <Route path="/" element={<PrivateRoute><KempingMain/></PrivateRoute>}/>
-                <Route path="/events" element={<PrivateRoute><Events/></PrivateRoute>}/>
-                <Route path="/tbr" element={<PrivateRoute><TBR/></PrivateRoute>}/>
-                <Route path="/profile" element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
-                <Route path="/forgot-password" element={<ForgotPassword/>}/>
-                <Route path="/update-profile" element={<PrivateRoute><UpdateProfile/></PrivateRoute>}/>
-                <Route path="/help" element={<Help/>}/>
+                <Route path="/login" element={<LoggedinRoute><Login /></LoggedinRoute>} />
+                <Route path="/signup" element={<LoggedinRoute><Signup /></LoggedinRoute>} />
+                <Route path="/" element={<PrivateRoute><KempingMain /></PrivateRoute>} />
+                <Route path="/events" element={<PrivateRoute><Events /></PrivateRoute>} />
+                <Route path="/tbr" element={<PrivateRoute><TBR /></PrivateRoute>} />
+                <Route path="/profile" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/update-profile" element={<PrivateRoute><UpdateProfile /></PrivateRoute>} />
+                <Route path="/help" element={<Help />} />
               </Routes>
-            </BrowserRouter>
-          </div>
-        </Container>
+            </div>
+          </Container>
+        </BrowserRouter>
       </AuthProvider>
     </div>
   );

@@ -1,10 +1,23 @@
-import React from 'react'
-import { NavDropdown } from 'react-bootstrap';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import React, { useEffect } from 'react'
+import { NavDropdown } from 'react-bootstrap'
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import { useLocation } from 'react-router-dom'
 
 function NavbarComp() {
+
+  const location = useLocation()
+
+  useEffect(() => {
+    const sectionId = location.hash.substring(1);
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      section.scrollIntoView();
+    }
+  }, [location.hash]);
+
   return (
     <Navbar collapseOnSelect className='mb-5 navbar-custom' expand="lg" bg="dark" variant="dark">
       <Container>
