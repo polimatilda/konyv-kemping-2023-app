@@ -13,6 +13,8 @@ function Dashboard() {
 
   const [name, setName] = useState('')
   const [guild, setGuild] = useState({})
+  const [promptStatusChange, setPromptStatusChange] = useState(0)
+  const [promptsProgress, setPromptsProgress] = useState(0)
 
   useEffect(() => {
     if (currentUser) {
@@ -24,9 +26,12 @@ function Dashboard() {
   useEffect(() => {
     if (currentUser) {
       getChosenGuild(currentUser.uid)
-        .then(guild => setGuild(guild))
+        .then(guild => {
+          setGuild(guild)
+          setPromptsProgress(guild.prompts.filter((prompt) => prompt.isCompleted === true).length)
+        })
     }
-  }, [currentUser])
+  }, [currentUser, promptStatusChange])
 
   return (
     <>
@@ -36,7 +41,7 @@ function Dashboard() {
         </Col>
       </Row>
       <ProfileDetails currentUser={currentUser} logout={logout} />
-      <ProfileGuild guild={guild} />
+      <ProfileGuild guild={guild} setPromptStatusChange={setPromptStatusChange} promptsProgress={promptsProgress} />
     </>
   )
 }

@@ -5,7 +5,7 @@ import { useAuth } from '../contexts/AuthContext'
 import { updatePrompt } from '../contexts/ManageData'
 
 
-function PromptsProfile({ prompt }) {
+function PromptsProfile({ prompt, setPromptStatusChange }) {
 
   const { currentUser } = useAuth()
 
@@ -15,12 +15,12 @@ function PromptsProfile({ prompt }) {
   const promptUpdate = () => {
     setPromtToUpdateName(prompt.promptName)
     setPromtToUpdateCompleted(!promptToUpdateCompleted)
-    console.log(promptToUpdateCompleted, promptToUpdateName)
   }
 
   useEffect(() => {
     if (currentUser && promptToUpdateName) {
       updatePrompt(currentUser.uid, promptToUpdateName, promptToUpdateCompleted)
+      .then(() => setPromptStatusChange(oldValue => oldValue + 1))
     }
   }, [currentUser, promptToUpdateName, promptToUpdateCompleted])
 

@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, ListGroup, Row } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { getTBR } from '../contexts/ManageData'
 import TbrList from './TbrList'
 
-function TbrBooks({setTbr, tbr}) {
+function TbrBooks({setTbr, tbr, minBooks, isGuildChosen}) {
+
+  const [bookStatusChange, setBookStatusChange] = useState(0)
+  const [BooksProgress, setBooksProgress] = useState(0)
 
   const { currentUser } = useAuth()
 
@@ -13,9 +16,11 @@ function TbrBooks({setTbr, tbr}) {
       getTBR(currentUser.uid)
         .then(tbr => {
           setTbr(tbr)
+          setBooksProgress(tbr.filter((book) => book.isRead === true).length)
+
         })
     }
-  }, [currentUser, setTbr])
+  }, [currentUser, setTbr, bookStatusChange])
 
 
   return (
@@ -26,13 +31,18 @@ function TbrBooks({setTbr, tbr}) {
             <h4>Az olvasmánylistád:</h4>
           </Col>
         </Row>
+       {isGuildChosen && <Row>
+          <Col>
+          <p>Minimum elolvasandó történetek: <strong>{minBooks}</strong>/<strong>{BooksProgress}</strong></p>
+          </Col>
+        </Row>}
         <Row>
           <Col>
             {tbr.length > 0
               ? <Row>
                 <Col>
                   <ListGroup as="ol">
-                    {tbr.map((book, index) => <TbrList key={index} book={book}/>)}
+                    {tbr.map((book, index) => <TbrList key={index} book={book} setBookStatusChange={setBookStatusChange}/>)}
                   </ListGroup>
                 </Col>
               </Row>

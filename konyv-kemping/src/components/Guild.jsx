@@ -38,7 +38,7 @@ function Guild({ guild }) {
               {guild.prompts.map((prompt, index) => <ListGroup.Item as="li" key={index} className="guild-card">{prompt.promptName}</ListGroup.Item>)}
             </ListGroup>
           </Card.Body>
-          <Button onClick={chooseGuild}>Céh kiválasztása</Button>
+          <Button onClick={chooseGuild} disabled={currentUser ? false : true}>Céh kiválasztása</Button>
           {alert && <Alert variant='success' className='mt-2 text-center'>Céh kiválasztva!</Alert>}
         </Card>
       </Col>

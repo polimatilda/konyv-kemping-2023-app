@@ -1,21 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Alert, Button, Card, Form } from 'react-bootstrap'
-import { useAuth } from '../contexts/AuthContext'
-import { addToTBR, getChosenGuild } from '../contexts/ManageData'
+import { addToTBR } from '../contexts/ManageData'
 
-function AddBookToTbr({setTbr}) {
+function AddBookToTbr({setTbr, prompts, currentUser, isGuildChosen}) {
 
   const [emptyFieldAlert, setEmptyFieldAlert] = useState(false)
   const [addBook, setAddBook] = useState([])
   const [bookAlert, setBookAlert] = useState(false)
-  const [prompts, setPrompts] = useState([])
-  const [isGuildChosen, setIsGuildChosen] = useState(false)
 
   const titleRef = useRef()
   const authorRef = useRef()
   const promptRef = useRef()
-
-  const { currentUser } = useAuth()
 
   const handleSubmit = async (event) => {
     
@@ -41,20 +36,6 @@ function AddBookToTbr({setTbr}) {
     titleRef.current.value = ""
     
   }
-
-  useEffect(() => {
-    if (currentUser) {
-      getChosenGuild(currentUser.uid)
-        .then(user => user.prompts === undefined ?setIsGuildChosen(false) : setIsGuildChosen(true))
-    }
-  }, [currentUser])
-
-  useEffect(() => {
-    if (currentUser && isGuildChosen) {
-      getChosenGuild(currentUser.uid)
-        .then(user => setPrompts(user.prompts))
-    }
-  }, [currentUser, isGuildChosen])
 
   useEffect(() => {
     if (currentUser && Object.keys(addBook).length > 0) {

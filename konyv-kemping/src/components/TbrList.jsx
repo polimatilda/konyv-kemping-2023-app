@@ -4,7 +4,7 @@ import { Alert, Button, Col, ListGroup, Row } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { deleteBookFromTBR, updateBookStatus } from '../contexts/ManageData'
 
-function TbrList({ book }) {
+function TbrList({ book, setBookStatusChange }) {
 
   const { currentUser } = useAuth()
 
@@ -26,6 +26,7 @@ function TbrList({ book }) {
   useEffect(() => {
     if (currentUser && bookId) {
       updateBookStatus(currentUser.uid, bookId, bookRead)
+      .then(() => setBookStatusChange(oldValue => oldValue + 1))
     }
   }, [currentUser, bookId, bookRead])
 

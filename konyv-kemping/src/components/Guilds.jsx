@@ -14,7 +14,9 @@ function Guilds() {
         { promptName: "Történelmi romantikus", isCompleted: false },
         { promptName: "Történelmi ifjúsági", isCompleted: false },
         { promptName: "Nem angolszász vagy magyar", isCompleted: false }
-      ]
+      ],
+      minPrompts: 2,
+      minStories: 5
     },
     {
       name: "A Kódexmásoló Céh - A könyvkötő",
@@ -26,7 +28,9 @@ function Guilds() {
         { promptName: "Egy kötet, ami különleges (pl. élfestett vagy aranyozott)", isCompleted: false },
         { promptName: "Ismeretközlő irodalom", isCompleted: false },
         { promptName: "Európai uniós szerző", isCompleted: false },
-      ]
+      ],
+      minPrompts: 2,
+      minStories: 5
     },
     {
       name: "A Művész Céh",
@@ -39,7 +43,9 @@ function Guilds() {
         { promptName: "Könyv, amelyben fontos szerepet kap a zene", isCompleted: false },
         { promptName: "Könyv, amelyben fontos szerepet kapnak a filmek", isCompleted: false },
         { promptName: "Kortárs szerző írta", isCompleted: false },
-      ]
+      ],
+      minPrompts: 3,
+      minStories: 5
     },
     {
       name: "A Tótumfaktumok Céhe",
@@ -51,6 +57,9 @@ function Guilds() {
         { promptName: "Ifjúsági és gyermekirodalom", isCompleted: false },
         { promptName: "Novella", isCompleted: false },
       ]
+      ,
+      minPrompts: 5,
+      minStories: 5
     },
     {
       name: "A Gyógyító Céh",
@@ -63,7 +72,9 @@ function Guilds() {
         { promptName: "Női szerző", isCompleted: false },
         { promptName: "Női főszereplő", isCompleted: false },
         { promptName: "Egy komfort olvasmány", isCompleted: false },
-      ]
+      ],
+      minPrompts: 2,
+      minStories: 5
     },
     {
       name: "Az Álmodók Céhe - Akik a csillagokba tekintenek",
@@ -75,7 +86,9 @@ function Guilds() {
         { promptName: "Egy sci-fi, amelynek nő a szerzője", isCompleted: false },
         { promptName: "Egy társadalmi sci-fi", isCompleted: false },
         { promptName: "Egy novella Kelly Linktől", isCompleted: false },
-      ]
+      ],
+      minPrompts: 2,
+      minStories: 5
     },
     {
       name: "Az Álmodók Céhe - Akik ajtókat nyitnak",
@@ -88,7 +101,9 @@ function Guilds() {
         { promptName: "Képregény", isCompleted: false },
         { promptName: "Egy sorozat folytatása", isCompleted: false },
         { promptName: "Egy fantasy történet, amelyekben iskola van", isCompleted: false },
-      ]
+      ],
+      minPrompts: 2,
+      minStories: 5
     }
   ]
 

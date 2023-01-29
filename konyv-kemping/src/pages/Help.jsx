@@ -30,7 +30,7 @@ function Help() {
               Ha bármi problémával találkoztok használat során vagy kérdésetek van, pingeljetek meg a <a href="https://discord.gg/m5tpSSG" target="_blank" rel='noreferrer'>Magyar Booktube Discordján</a> (@Matilda)!
             </ListGroup.Item>
             <ListGroup.Item as="li" className="guild-card">
-              Kellemes Kempinget Mindnekinek!
+              Kellemes Kempinget Mindenkinek!
             </ListGroup.Item>
           </ListGroup>
         </Card.Body>
