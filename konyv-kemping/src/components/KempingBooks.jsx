@@ -20,7 +20,7 @@ function KempingBooks() {
           <p>Diégane nyomozni kezd a titokzatos T.C. Elimane után, és tragédiákkal szembesül. Közben Párizsban fiatal afrikai írók egy csoportjával jár össze; figyelik egymást, beszélgetnek, vitatkoznak, isznak, sokat szeretkeznek, és töprengenek a száműzetésbeli alkotás szükségességén.</p>
           <p>Az emberek legtitkosabb emlékezete villódzóan ötletes, lebilincselő olvasmány, melyben ott a választás állandó kényszere: írni vagy élni? Szerelmi vallomás az irodalomhoz és az irodalom időtlen hatalmához.</p>
           <p>Mohamed Mbougar Sarr 1990-ben született Szenegálban, Franciaországban él, eddig három regénye jelent meg. Magyarul ez az első könyve.</p>
-          <Button><a href="https://moly.hu/konyvek/mohamed-mbougar-sarr-az-emberek-legtitkosabb-emlekezete" target="_blank" rel='noreferrer' className='btn-link'>További információ</a></Button>
+          <Button><a href="https://moly.hu/konyvek/mohamed-mbougar-sarr-az-emberek-legtitkosabb-emlekezete" target="_blank" rel='noreferrer' className='book-link'>További információ</a></Button>
         </Col>
         <Col lg className="d-flex justify-content-center">
           <img src={bookOne} className="img-fluid rounded" alt="konyv kemping kozos konyv" />
@@ -46,7 +46,7 @@ function KempingBooks() {
             <li>szembe kell néznie az igazsággal</li>
           </ul>
           <p>Quinn mindenről listát vezet az életében – a napokról, amikor bőgött; a fiúkról, akiket megcsókolna, és a dolgokról, amiket sosem vallana be senkinek. Azzal, hogy kiírja magából a problémáit, nem kell megbirkóznia velük a való életben. Egészen addig, amíg valaki el nem lopja a naplóját…</p>
-          <Button><a href="https://moly.hu/konyvek/joya-goffney-bocs-hadd-bogjem-ki-magam" target="_blank" rel='noreferrer' className='btn-link'>További információ</a></Button>
+          <Button><a href="https://moly.hu/konyvek/joya-goffney-bocs-hadd-bogjem-ki-magam" target="_blank" rel='noreferrer' className='book-link'>További információ</a></Button>
         </Col>
       </Row>
     </>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import Guild from './Guild'
+import SubGuild from './SubGuild'
 
 function Guilds() {
 
@@ -116,6 +117,7 @@ function Guilds() {
       </Row>
       <Row md={1} sm={1} xs={1} lg={2} className="my-4">
         {guilds.map((guild, index) => <Guild key={index} guild={guild} />)}
+        <SubGuild guilds={guilds}/>
       </Row>
     </>
   )
