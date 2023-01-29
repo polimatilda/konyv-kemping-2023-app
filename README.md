@@ -9,6 +9,10 @@ Prompts can be checked on the profile page, where the chosen guild's prompts sho
 
 Books can be added to the reading list. After choosing a guild, books can be paired with prompts. When a book is added, it can be checked as read, or if the user does not want to read that book anymore for the readathon, the book can be deleted.
 
+The deployed project is available here:
+- https://konyv-kemping-2023.firebaseapp.com/login
+- https://konyv-kemping-2023.web.app/login
+
 ------
 
 These are the basic functions for now, but more is under development.
