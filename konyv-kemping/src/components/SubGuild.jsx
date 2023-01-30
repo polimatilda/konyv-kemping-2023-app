@@ -31,9 +31,17 @@ function SubGuild({ guilds, currentUser }) {
 
     }, [])
 
+    let subGuildNames = ""
+
+    if(subGuildOne[0].name === subGuildTwo[0].name) {
+      subGuildNames = subGuildOne[0].name
+    } else {
+      subGuildNames = subGuildOne[0].name + ", " + subGuildTwo[0].name
+    }
+
     setMultiGuild({
       name: mainGuild[0].name,
-      description: "Mellékcéhek: " + subGuildOne[0].name + ", " + subGuildTwo[0].name,
+      description: "Mellékcéhek: " + subGuildNames,
       prompts: [...filteredPrompts],
       minPrompts: 6,
       minStories: 6
