@@ -1,9 +1,12 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
+import { useAuth } from '../contexts/AuthContext'
 import Guild from './Guild'
 import SubGuild from './SubGuild'
 
 function Guilds() {
+
+  const { currentUser } = useAuth()
 
   const guilds = [
     {
@@ -116,8 +119,8 @@ function Guilds() {
         </Col>
       </Row>
       <Row md={1} sm={1} xs={1} lg={2} className="my-4">
-        {guilds.map((guild, index) => <Guild key={index} guild={guild} />)}
-        <SubGuild guilds={guilds}/>
+        {guilds.map((guild, index) => <Guild key={index} guild={guild} currentUser={currentUser}/>)}
+        <SubGuild guilds={guilds} currentUser={currentUser}/>
       </Row>
     </>
   )

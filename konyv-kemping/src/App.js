@@ -15,11 +15,26 @@ import Events from "./pages/Events";
 import TBR from "./pages/TBR";
 import Help from "./pages/Help";
 import Footer from "./components/Footer";
+import { useEffect, useState } from "react";
+import ScrollToTopBtn from "./components/ScrollToTopBtn";
 
 
 function App() {
+
+  const [showButton, setShowButton] = useState(false)
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        setShowButton(true)
+      } else {
+        setShowButton(false)
+      }
+    })
+  }, [])
+
   return (
-    <div className="App">
+    <div className="App position-relative">
       <AuthProvider>
         <BrowserRouter>
           <NavbarComp />
@@ -38,7 +53,8 @@ function App() {
               </Routes>
             </div>
           </Container>
-          <Footer/>
+          <Footer />
+          {showButton && <ScrollToTopBtn />}
         </BrowserRouter>
       </AuthProvider>
     </div>

@@ -1,20 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import { useState } from 'react'
 import { Alert, Button, Card, Col, Form } from 'react-bootstrap'
-import { useAuth } from '../contexts/AuthContext'
 import { updateGuild } from '../contexts/ManageData'
 
-function SubGuild({ guilds }) {
+function SubGuild({ guilds, currentUser }) {
 
-  const { currentUser } = useAuth()
-
-  // const [chosenGuild, setChosenGuild] = useState([])
   const [alert, setAlert] = useState(false)
-
-  // const chooseGuild = () => {
-  //   setChosenGuild(guild)
-  //   setAlert(true)
-  // }
 
   const [multiGuild, setMultiGuild] = useState({})
 
@@ -66,7 +57,7 @@ function SubGuild({ guilds }) {
         <Card.Body>
         <Card.Title className='small-caps'>Tartozz több céhhez!</Card.Title>
           <Card.Text>
-            Ha nem tudsz választani akkor lehet egy fő munkád, és mellette jártassá válhatsz egy másikban is. Ebben az esetben 6 történetet kell elolvasnod (ebből háromnak könyvnek vagy kisregénynek kell lennie [képregények és képes könyvek is számítanak!]): 4 történet tartozik a “fő” mesterségedhez, kettő pedig bármely másik általad választott mesterséghez.
+            Ha nem tudsz választani akkor lehet egy fő munkád, és mellette jártassá válhatsz egy másikban is. Ebben az esetben 6 történetet kell elolvasnod (ebből háromnak könyvnek vagy kisregénynek kell lennie [képregények és képes könyvek is számítanak!]): 4 történet tartozik a “fő” mesterségedhez, kettő pedig bármely másik általad választott mesterséghez. (Ha csak egy másodlagos céhet szeretnél kiválasztani, mindkét mellékcéh opciónál válaszd azt.)
           </Card.Text>
           <Form>
             <Form.Group id="main-guild" className='mb-3'>
@@ -89,7 +80,7 @@ function SubGuild({ guilds }) {
             </Form.Group>
           </Form>
         </Card.Body>
-        <Button type='submit' className='w-100 mt-2' onClick={handleSubmit}>Céhek kiválasztása</Button>
+        <Button type='submit' className='w-100 mt-2' onClick={handleSubmit} disabled={currentUser ? false : true}>Céhek kiválasztása</Button>
         {alert && <Alert variant='success' className='mt-2 text-center'>Céh kiválasztva!</Alert>}
       </Card>
     </Col>

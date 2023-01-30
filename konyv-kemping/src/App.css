@@ -108,3 +108,14 @@ ul {
 select {
   color: #4c2991 !important;
 }
+
+.back-to-top-btn {
+  right: 3%;
+  bottom: 5%;
+  box-shadow: 0 0 5px #6646a2;
+  opacity: 0.5;
+}
+
+.back-to-top-btn:hover {
+  opacity: 1;
+}

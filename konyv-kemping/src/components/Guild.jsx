@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
 import Col from 'react-bootstrap/Col'
 import { Alert, Button, Card, ListGroup } from 'react-bootstrap'
-import { useAuth } from '../contexts/AuthContext'
 import { updateGuild } from '../contexts/ManageData'
 import { useEffect } from 'react'
 
 
-function Guild({ guild }) {
-
-  const { currentUser } = useAuth()
+function Guild({ guild, currentUser }) {
 
   const [chosenGuild, setChosenGuild] = useState([])
   const [alert, setAlert] = useState(false)
