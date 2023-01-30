@@ -30,6 +30,7 @@ function Guild({ guild, currentUser }) {
             <Card.Title className='small-caps'>{guild.name}</Card.Title>
             <Card.Text>
               {guild.description}
+              <p className='my-2'><i>Céhmester: </i>{guild.guildMaster}</p>
             </Card.Text>
             <ListGroup as="ol" numbered>
               {guild.prompts.map((prompt, index) => <ListGroup.Item as="li" key={index} className="guild-card">{prompt.promptName}</ListGroup.Item>)}

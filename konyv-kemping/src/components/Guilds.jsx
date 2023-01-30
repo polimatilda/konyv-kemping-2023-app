@@ -20,7 +20,8 @@ function Guilds() {
         { promptName: "Nem angolszász vagy magyar", isCompleted: false }
       ],
       minPrompts: 2,
-      minStories: 5
+      minStories: 5,
+      guildMaster: "Réka"
     },
     {
       name: "A Kódexmásoló Céh - A könyvkötő",
@@ -34,7 +35,8 @@ function Guilds() {
         { promptName: "Európai uniós szerző", isCompleted: false },
       ],
       minPrompts: 2,
-      minStories: 5
+      minStories: 5,
+      guildMaster: "Zsófi"
     },
     {
       name: "A Művész Céh",
@@ -49,7 +51,8 @@ function Guilds() {
         { promptName: "Kortárs szerző írta", isCompleted: false },
       ],
       minPrompts: 3,
-      minStories: 5
+      minStories: 5,
+      guildMaster: "Enikő"
     },
     {
       name: "A Tótumfaktumok Céhe",
@@ -63,7 +66,8 @@ function Guilds() {
       ]
       ,
       minPrompts: 5,
-      minStories: 5
+      minStories: 5,
+      guildMaster: "Ati"
     },
     {
       name: "A Gyógyító Céh",
@@ -78,7 +82,8 @@ function Guilds() {
         { promptName: "Egy komfort olvasmány", isCompleted: false },
       ],
       minPrompts: 2,
-      minStories: 5
+      minStories: 5,
+      guildMaster: "Eszter"
     },
     {
       name: "Az Álmodók Céhe - Akik a csillagokba tekintenek",
@@ -92,7 +97,8 @@ function Guilds() {
         { promptName: "Egy novella Kelly Linktől", isCompleted: false },
       ],
       minPrompts: 2,
-      minStories: 5
+      minStories: 5,
+      guildMaster: "Fruzsi"
     },
     {
       name: "Az Álmodók Céhe - Akik ajtókat nyitnak",
@@ -107,7 +113,8 @@ function Guilds() {
         { promptName: "Egy fantasy történet, amelyekben iskola van", isCompleted: false },
       ],
       minPrompts: 2,
-      minStories: 5
+      minStories: 5,
+      guildMaster: "Fanni (Booksnail)"
     }
   ]
 
