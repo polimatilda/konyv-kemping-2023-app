@@ -18,7 +18,7 @@ function ProfileGuild({guild, setPromptStatusChange, promptsProgress}) {
               ? <Row>
                 <Col>
                   <h2 className='mb-3'>{guild.name}</h2>
-                  {guild.description.includes("Mellékcéhek") && <p className='subguilds'>{guild.description}</p>}
+                  {guild.description.includes("Mellékcéh") && <p className='subguilds'>{guild.description}</p>}
                   <p>Minimum teljesítendő szempontok: <strong>{guild.minPrompts}</strong>/<strong>{promptsProgress}</strong></p>
                   <ListGroup as="ol">
                     {guild.prompts.map((prompt, index) => <PromptsProfile key={index} prompt={prompt} setPromptStatusChange={setPromptStatusChange}/>)}
