@@ -120,3 +120,7 @@ select {
 .back-to-top-btn:hover {
   opacity: 1;
 }
+
+.date-of-kemping {
+  font-size: 23px;
+}

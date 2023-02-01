@@ -10,7 +10,7 @@ function KempingTheme() {
           <h1 className="text-center small-caps">Kedves Kalandor!</h1>
         </Col>
       </Row>
-      <Row className="d-flex align-items-center">
+      <Row className="d-flex align-items-center mb-5">
         <Col lg>
           <img src={logo} className="img-fluid rounded mb-3" alt="konyv kemping logo" />
         </Col>

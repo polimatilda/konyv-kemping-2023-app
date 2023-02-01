@@ -22,7 +22,6 @@ export const getUserName = async (userId) => {
   return name
 }
 
-
 export const updateGuild = async (userId, guild) => {
 
   const querySnapshot = await getDocs(collection(database, "users"))
