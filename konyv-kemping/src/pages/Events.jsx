@@ -12,10 +12,17 @@ function Events() {
 
   const date = new Date()
   const todaysDate = date.getFullYear() + ". " + (date.getMonth() + 1) + ". " + date.getDate() + "."
+  console.log(todaysDate)
 
   useEffect(() => {
     getEvents().then((eventsData) => {
-      setUpcomingEvents(eventsData.filter(event => todaysDate !== event.date && event.date > todaysDate))
+      setUpcomingEvents(eventsData.filter(event => {
+
+        let todaysDateFilter = new Date(todaysDate.replace(/\./g, '-'))
+        let dateFilter = new Date(event.date.replace(/\./g, '-'))
+        
+        return todaysDateFilter !== dateFilter && dateFilter > todaysDateFilter
+      }))
     })
   }, [todaysDate])
 
