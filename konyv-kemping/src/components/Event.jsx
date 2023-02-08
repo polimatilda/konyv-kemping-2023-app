@@ -11,8 +11,8 @@ function Event({ event }) {
           <Card.Title>{event.name}</Card.Title>
           <Card.Text>
             {event.where}
-            {event.host && <p><i>Host: </i>{event.host}</p>}
           </Card.Text>
+          {event.host && <Card.Text><i>Host: </i>{event.host}</Card.Text>}
           <Button variant="primary" disabled={event.link === "" ? true : false}>
             <a href={event.link} target="_blank" rel='noreferrer' className='event-link'>
               Ugrás az eseményre
