@@ -65,7 +65,7 @@ function Events() {
           <h1 className="text-center small-caps">Mai események</h1>
         </Col>
       </Row>
-      <Row md={1} sm={1} xs={1} lg={1} className="my-4">
+      <Row md={1} sm={1} xs={1} lg={1} className="my-4 w-100">
         {todaysEvents.length > 0 ? todaysEvents.map((event, index) => <Event event={event} key={index} />) : <Col><p>Ma nincsenek események</p></Col>}
       </Row>
       <Row>
@@ -81,7 +81,7 @@ function Events() {
 
       {listingPastEvents
         ?
-        <Row md={1} sm={1} xs={1} lg={1} className="my-4">
+        <Row md={1} sm={1} xs={1} lg={1} className="my-4 w-100">
           {pastEvents.sort((a, b) => {
             let dateA = new Date(a.date.replace(/\./g, '-'))
             let dateB = new Date(b.date.replace(/\./g, '-'))
@@ -89,7 +89,7 @@ function Events() {
           }).map((event, index) => <Event event={event} key={index} />)}
         </Row>
         :
-        <Row md={1} sm={1} xs={1} lg={1} className="my-4">
+        <Row md={1} sm={1} xs={1} lg={1} className="my-4 w-100">
           {upcomingEvents.sort((a, b) => {
             let dateA = new Date(a.date.replace(/\./g, '-'))
             let dateB = new Date(b.date.replace(/\./g, '-'))
